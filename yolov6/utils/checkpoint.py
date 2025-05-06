@@ -7,7 +7,6 @@ import os.path as osp
 from yolov6.utils.events import LOGGER
 from yolov6.utils.torch_utils import fuse_model
 
-
 def load_state_dict(weights, model, map_location=None):
     """Load weights from checkpoint file, only assign weights those layers' name and shape are match."""
     ckpt = torch.load(weights, map_location=map_location)
@@ -22,7 +21,8 @@ def load_state_dict(weights, model, map_location=None):
 def load_checkpoint(weights, map_location=None, inplace=True, fuse=True):
     """Load model from checkpoint file."""
     LOGGER.info("Loading checkpoint from {}".format(weights))
-    ckpt = torch.load(weights, map_location=map_location)  # load
+    # ckpt = torch.load(weights, map_location=map_location)  # load
+    ckpt = torch.load(weights, map_location=map_location, weights_only=False)
     model = ckpt['ema' if ckpt.get('ema') else 'model'].float()
     if fuse:
         LOGGER.info("\nFusing model...")

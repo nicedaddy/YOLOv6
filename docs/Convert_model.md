@@ -21,7 +21,7 @@ ROOT = os.getcwd()
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 # Run in original code
-param_state_dict = torch.load('../weights/yolov6_v3/p5/yolov6m.pt')
+param_state_dict = torch.load('../weights/yolov6_v3/p5/yolov6m.pt',)
 
 old_state_dict = {}
 param_state_dict = param_state_dict['model']

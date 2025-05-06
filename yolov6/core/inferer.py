@@ -137,7 +137,10 @@ class Inferer:
                     cv2.namedWindow(str(img_path), cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)  # allow window resize (Linux)
                     cv2.resizeWindow(str(img_path), img_src.shape[1], img_src.shape[0])
                 cv2.imshow(str(img_path), img_src)
-                cv2.waitKey(1)  # 1 millisecond
+                # cv2.waitKey(1)  # 1 millisecond
+                ch = cv2.waitKey(1)
+                if ch == 27 or ch == ord("q") or ch == ord("Q"):
+                    break
 
             # Save results (image with detections)
             if save_img:
