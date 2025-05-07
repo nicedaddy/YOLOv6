@@ -23,6 +23,7 @@ import torch
 ROOT = os.getcwd()
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
+    # test commit
 
 from yolov6.utils.events import LOGGER
 from yolov6.core.inferer import Inferer
